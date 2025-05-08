@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roo Custom Modes Editor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Roo Custom Modes Editor</h1>
+
+        <div class="controls">
+            <button id="addModeBtn">Add Mode</button>
+            <button id="deleteModeBtn">Delete Selected</button>
+            <button id="saveChangesBtn">Save Changes</button>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <table id="modesTable">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Slug</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Model</th>
+                    <th>System Prompt</th>
+                </tr>
+            </thead>
+            <tbody id="modesTableBody">
+                <!-- Modes will be rendered here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/app.js"></script>
+    <script>
+        // Initialize the editor when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchModes();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('addModeBtn').addEventListener('click', handleAddMode);
+            document.getElementById('deleteModeBtn').addEventListener('click', handleDeleteMode);
+            document.getElementById('saveChangesBtn').addEventListener('click', handleSaveChanges);
+        }
+
+        function showStatus(message, isError = false) {
+            const statusElement = document.getElementById('statusMessage');
+            statusElement.textContent = message;
+            statusElement.className = isError ? 'status-message error' : 'status-message success';
+        }
+    </script>
+</body>
+</html>
