@@ -1,0 +1,10 @@
+# Example: config/file_sources.toml
+[[sources]]
+name = "Default Cline Modes"
+path = "/home/marc/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/custom_modes.json"
+# This 'path' must be an absolute path.
+
+[[sources]]
+name = "Project Example Modes"
+path = "/home/marc/devel/roomodes-editor/examples/cline_custom_modes.json"
+# This 'path' must be an absolute path.
